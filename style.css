@@ -1,0 +1,41 @@
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background: #252323;
+}
+
+img {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 50%;
+    margin-right: 5px
+}
+.container{
+    bottom: 0;
+    position: absolute;
+    left: 40%;
+    cursor: pointer;
+}
+.single-block {
+    background: #fff;
+    box-shadow: 0px 0px 8px 0px #968989;
+    width: 250px;
+    margin: 10px auto;
+    border-radius: 10px;
+    position: absolute;
+    bottom: 0;
+    transition: all ease-in-out .2s
+}
+.content{
+    display: flex;
+    padding: 8px 13px
+}
+h3, p{margin: 0}
+h3{
+    font-size: 16px;
+    font-weight: normal;
+}
+p{
+    color: #afafaf
+}

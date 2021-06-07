@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hey pin menu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+        <div class="container"></div>
+    <script>
+        let listOfItem = [
+            'dina82',
+            'IG/dinasalman',
+            'YT.com/dinasalman',
+            ' FB.com/dinaSalman',
+            ' twitter@dinasalman',
+            ' FB.com/dinaSalman',
+            'twitter@dina82'
+        ];
+        let baseScale = .03;
+        function createSingleBlock(i) {
+            return `
+            <div class="content">
+                <img src="./c1.jpg" alt="user image">
+                <div>
+                    <h3>${i}</h3>
+                    <p>description</p>
+                </div>
+             </div>
+                    `;
+        }
+        function baseElement() {
+            return listOfItem.forEach((item, i) => {
+                let bscale = listOfItem.length - 1 - i;
+                let elem = document.createElement('div')
+                elem.classList.add('single-block');
+                elem.innerHTML = createSingleBlock(item);
+                //  FIXME  
+                elem.style.transform = `scale(${1 - baseScale * bscale}) translateY( -${bscale * .6}rem )`;
+                document.querySelector('.container').appendChild(elem);
+                //   baseScale-=baseScale;
+            });
+
+        } baseElement();
+        let listOfBlocks = false;
+        let singleBlock = document.querySelectorAll('.single-block');
+        document.querySelector('.container').addEventListener('click', function (e) {
+            e.stopPropagation();
+            singleBlock.forEach((element, i) => {
+                let item = singleBlock.length - 1 - i;
+                element.style.transform = `rotate(${item * 1}deg) translate(${item * .02}rem, -${item * 4}rem)`;
+                listOfBlocks = true;
+            });
+        })
+        document.addEventListener('click', (e) => {
+            if (listOfBlocks) {
+                singleBlock.forEach((element, i) => {
+                    let bscale = listOfItem.length - 1 - i;
+                    element.style.transform = `scale(${1 - baseScale * bscale}) translateY( -${bscale * .6}rem )`;
+                });
+
+            }
+        })
+    </script>
+</body>
+
+</html>
+<!-- let z = singleBlock.length - 1 - i; -->
+<!-- element.style.transform = `rotate(${z}deg) translate(${z * .1}rem, -${z * 4}rem)`; -->
